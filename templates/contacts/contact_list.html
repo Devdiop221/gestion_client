@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block contenu %}
+<div class="mt-2 mb-1">
+    <a href="{% url 'new_contact' %}" class="btn btn-info">Ajouter contact</a>
+</div>
+    <div class="row">
+    <div clas="col-md-6 m-auto">
+        <div class="card card-body">
+        {% if contacts %}
+            <ul class="list-group list-group-flush">
+                    {% for contact in contacts %}
+                <li class="list-group-item">
+                    <a href="{% url 'details' contact.id %}"> {{ contact.prenom }}  {{ contact.nom }}</a>
+
+                </li>
+                    {% endfor %}
+            </ul>
+        {% else %}
+
+       {% endif %}
+        </div>
+    </div>
+
+    </div>
+{% endblock  %}
